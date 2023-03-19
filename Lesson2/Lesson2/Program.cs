@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Lesson2;
+using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Numerics;
 
@@ -11,6 +12,16 @@ public class Program
         try
         {
             n = ReadInt();
+            try
+            {
+                if (n <= 0)
+                    throw new MinusException();
+            }
+            catch 
+            {
+                Console.WriteLine("Размер массива не может быть отрицательным!");
+                return;
+            }
             int i = 0;
             int max = 0;
             int secondMax = 0;
@@ -46,7 +57,7 @@ public class Program
         }
         catch (System.FormatException)
         {
-            Console.WriteLine("Введите цифры!");
+            Console.WriteLine("Введите целые числа!");
         }
      }
        
